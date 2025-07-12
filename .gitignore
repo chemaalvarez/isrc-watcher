@@ -1,0 +1,10 @@
+# Python / FastAPI
+backend/venv/
+backend/__pycache__/
+*.pyc
+
+# Mac
+.DS_Store
+
+# VSCode
+.vscode/
