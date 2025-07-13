@@ -11,7 +11,7 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`http://localhost:8000/search?q=${encodeURIComponent(query)}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/search?q=${encodeURIComponent(query)}`);
       if (!res.ok) throw new Error('Error al conectar con el backend');
       const data = await res.json();
       setResults(data.results || []);
