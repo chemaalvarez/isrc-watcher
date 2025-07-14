@@ -1,26 +1,28 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 function App() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSearch = async () => {
-    if (!query.trim()) return;
-    setLoading(true);
-    setError('');
+    if (!query.trim()) return
+    setLoading(true)
+    setError('')
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/search?q=${encodeURIComponent(query)}`);
-      if (!res.ok) throw new Error('Error al conectar con el backend');
-      const data = await res.json();
-      setResults(data.results || []);
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/search?q=${encodeURIComponent(query)}`
+      )
+      if (!res.ok) throw new Error('Error al conectar con el backend')
+      const data = await res.json()
+      setResults(data.results || [])
     } catch (err) {
-      setError(err.message || 'Error desconocido');
+      setError(err.message || 'Error desconocido')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
@@ -46,7 +48,7 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
