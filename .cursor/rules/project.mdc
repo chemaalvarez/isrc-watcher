@@ -1,0 +1,46 @@
+---
+description: Project-wide rules for isrc-watcher
+globs:
+alwaysApply: true
+---
+
+This repository is isrc-watcher.
+
+General rules:
+- Follow the existing project structure before proposing new folders.
+- Prefer minimal, reversible changes over broad refactors.
+- Do not invent architecture that is not already present in the repository.
+- Before modifying code, inspect relevant files and infer the current pattern.
+- Keep changes aligned with the current stack and dependencies.
+- When proposing changes, explain assumptions briefly and mark uncertainty clearly.
+- Prefer explicit code over clever code.
+- Preserve working behavior unless the task explicitly requires changing it.
+
+Repository structure:
+- backend contains backend code and API logic.
+- frontend contains frontend code.
+- tests contains tests.
+- requirements.txt defines Python dependencies for backend.
+- package.json may define frontend or workspace tooling.
+- README.md should remain consistent with important setup or workflow changes.
+
+Python/backend rules:
+- Prefer small functions and clear naming.
+- Reuse existing service/router/schema patterns if present.
+- Add or update tests when behavior changes.
+- Avoid adding dependencies unless necessary.
+
+Frontend rules:
+- Follow the existing frontend conventions already present in the repository.
+- Avoid introducing new frameworks or state libraries unless already used.
+
+Execution and validation:
+- Before suggesting finalization, identify how to run relevant tests or checks already available in the repo.
+- If a command is uncertain, state that it should be verified against the repository files.
+
+Communication rules:
+- Be concise, technical, and explicit.
+- Do not claim something was verified if it was not actually verified from the repository.
+- Distinguish clearly between facts from the repo and recommendations.---
+alwaysApply: true
+---
