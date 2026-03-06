@@ -1,11 +1,16 @@
 # Python / FastAPI
 backend/venv/
-backend/__pycache__/
+__pycache__/
 *.pyc
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Mac
 .DS_Store
 
 # VSCode
 .vscode/
+
+# Environment
 .env
