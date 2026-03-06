@@ -49,3 +49,12 @@ async def test_verify_isrc_endpoint_valid():
 
         assert response.status_code == 200
         assert response.json() == {"is_valid": True, "message": "Valid ISRC"}
+
+
+@pytest.mark.asyncio
+async def test_verify_isrc_endpoint_rejects_empty_string():
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
+        response = await ac.post("/api/isrc/verify", json={"isrc_code": ""})
+
+    assert response.status_code == 422
