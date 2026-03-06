@@ -10,7 +10,7 @@ from backend.services.isrc_verifier import verify_isrc_code
 
 
 def test_verify_isrc_code_valid():
-    is_valid, message = verify_isrc_code("ISRC123456789")
+    is_valid, message = verify_isrc_code("USRC17607839")
     assert is_valid is True
     assert message == "Valid ISRC"
 
