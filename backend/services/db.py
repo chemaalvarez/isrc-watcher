@@ -1,9 +1,8 @@
 # backend/services/db.py
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from backend.config.settings import settings
-from sqlalchemy.orm import declarative_base
 
 DATABASE_URL = settings.database_url  # <- la cogeremos del .env
 
@@ -15,7 +14,8 @@ async_session = sessionmaker(
     expire_on_commit=False
 )
 
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 async def get_db():
     async with async_session() as session:
